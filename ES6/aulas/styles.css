@@ -1,0 +1,31 @@
+:root{
+    font-family: sans-serif;
+}
+
+.modulo {
+    background: #faf0f0;
+    border: 1px solid #a3a0a0;
+    border-radius: 15px;
+    color: #291b1b;
+    margin: 10px;
+}
+
+.modulo h1 {
+    display:flex;
+    justify-content: center;
+}
+
+.aula {
+    background: #ffffff;
+    border: 1px solid #a3a0a0;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.aula h2 {
+    margin: 10px;
+}
+
+.assunto {
+    margin: 20px 20px 50px;
+}
