@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Curso Javascript - Introdução</title>
+    </head>
+
+    <body>
+
+
+        <script>
+        
+        // Lição 1
+        var endereco = {
+            rua: "Rua dos pinheiros",
+            numero: 1293,
+            bairro: "Centro",
+            cidade: "São Paulo",
+            uf: "SP"
+        };
+
+        function retornaEndereco(end){
+            return 'O usuário mora em '+ end.cidade + '/' + end.uf + ', no bairro '+end.bairro+ ', na rua ' + end.rua + ' com nº ' + end.numero+'.';
+        }
+        console.log('Retorno Lição 1:');
+        console.log(retornaEndereco(endereco));
+
+
+        // Lição 2
+        function saoPares(x, y) {
+            var pares=[];
+            for (var num=x; num<= y; num++){
+                if (num % 2 == 0){
+                    pares.push(num);
+                }
+            }
+            return pares.join(', ');
+        }
+        console.log('Retorno Lição 2:');
+        console.log('Os valores pares são: ' + saoPares(32, 321));
+
+
+
+        // Lição 3        
+        function temHabilidade(skills) {
+            return skills.indexOf('Javascript')>-1 ? true : false;   
+        }
+        var skills = ["Javascript", "ReactJS", "React Native"];
+        console.log('Retorno Lição 3:');
+        console.log(temHabilidade(skills)); // true ou false
+
+
+
+        // Lição 4
+        function experiencia(anos) {
+            var retorno;
+            switch (true){
+                case (anos < 0): 
+                    retorno = 'Alguma coisa está errada';
+                    break;
+                case (anos<=1):
+                    retorno = 'Iniciante';
+                    break;
+                case (anos<=3): 
+                    retorno = 'Intermediário';
+                    break;
+                case (anos<=6): 
+                    retorno = 'Avançado';
+                    break;
+                case (anos>=7): 
+                    retorno = 'Jedi Master';
+                    break;
+                default: 
+                    retorno = 'Alguma coisa está errada...';
+                    break;
+            }
+            return retorno;
+        }
+        var anosEstudo = 50;
+        console.log('Retorno Lição 4:');
+        console.log(experiencia(anosEstudo));
+
+
+
+        // Lição 5
+        var usuarios = [
+        {
+        nome: "Diego",
+        habilidades: ["Javascript", "ReactJS", "Redux"]
+        },
+        {
+        nome: "Gabriel",
+        habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+        }
+        ];
+        function experienciaUsuario(user){
+            return user.habilidades.join(", ");
+        }
+   
+        console.log('Retorno Lição 5:');
+        for (var usuario of usuarios){
+            console.log("O " + usuario.nome + " tem as habilidades: " + experienciaUsuario(usuario));
+        }
+
+
+        </script>
+    </body>
+</html>

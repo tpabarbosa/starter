@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <title>Curso Javascript - Manipulando a DOM</title>
+  </head>
+
+  <body>
+    <h1>Desafios Módulo 2 - Manipulando a DOM</h1>
+    <div class="licao">
+      <div id="licao1">
+        <h2>Exercício 1</h2>
+        <p>Clique no botão para adicionar quadrados</p> 
+        <button onclick="adicionaQuadrado(1)">Adicionar Quadrado</button>
+      </div>
+      <div class="box1"></div>
+    </div>
+    <div class="licao">
+      <div id="licao2">
+        <h2>Exercício 2</h2>
+        <p>Clique no botão para adicionar quadrados e depois clique nos quadrados para alterar sua cor</p> 
+        <button onclick="adicionaQuadrado(2)">Adicionar Quadrado</button>
+      </div>
+      <div class="box2"></div>
+    </div>
+    <div class="licao">
+      <div id="licao3">
+        <h2>Exercício 3</h2>
+        <p>Clique no botão para adicionar uma lista a partir de uma variável Array</p>
+        <button onclick="criaLista()">Criar Lista</button>
+      </div>
+    </div>
+    <div class="licao">
+        <div id="licao4">
+            <h2>Exercício 4</h2>
+          <label for="nome">Digite um nome para adicionar na lista</label>
+          <input type="text" name="nome" id="nome">
+          <button onclick="adicionaNome()">Adicionar Nome</button>
+        </div>
+
+      </div>
+
+      <div class="licao">
+          <div id="resultado3e4">
+            <h2>Resultado Lições 3 e 4</h2> 
+          </div>
+          <ul class="lista"></ul>
+        </div>
+
+    <script>
+      function adicionaQuadrado(licao) {
+        var boxElement = document.createElement("div");
+        boxElement.style.width = "100";
+        boxElement.style.height = "100";
+        boxElement.style.backgroundColor = "red";
+        boxElement.style.margin = "10px";
+        boxElement.style.border = "1px solid black";
+        //codigo licao 2
+        if (licao == 2) {
+          boxElement.addEventListener("click", function () {
+            boxElement.style.backgroundColor = getRandomColor();
+          });
+          var containerElement = document.querySelector(".box2");
+          containerElement.appendChild(boxElement);
+        } else {
+          var containerElement = document.querySelector(".box1");
+          containerElement.appendChild(boxElement);
+        }
+        // fim codigo licao 2
+      }
+
+      //funcao adicionada para a licao 2
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+      //var newColor = getRandomColor();
+      //fim da funcao adicionada para a licao 2
+
+      function criaLista() {
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+        for (var nome of nomes) {
+            adicionaItem(nome);
+        };
+      };
+
+      function adicionaItem(text){
+        var itemElement = document.createElement("li");
+        var textElement = document.createTextNode(text);
+        itemElement.appendChild(textElement);
+        var containerElement = document.querySelector(".lista");
+        containerElement.appendChild(itemElement);
+      };
+
+      function adicionaNome(){
+        var inputElement=document.querySelector('#nome');
+        adicionaItem(inputElement.value);
+        inputElement.value='';
+      };
+    </script>
+
+    <style>
+      .licao {
+        margin: 10px;
+        width: 90%;
+        border: 1px solid blue;
+      }
+
+      #licao1,
+      #licao2,
+      #licao3, 
+      #licao4,
+      #resultado3e4 {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .box1,
+      .box2 {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+    </style>
+  </body>
+</html>

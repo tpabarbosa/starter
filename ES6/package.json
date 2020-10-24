@@ -1,0 +1,15 @@
+{
+  "name": "ES6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tatiana Barbosa <tpabarbosa@yahoo.com.br>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1"
+  },
+  "scripts": {
+    "dev": "babel ./aulas/main.js -o ./aulas/bundle.js -w"
+  }
+}
