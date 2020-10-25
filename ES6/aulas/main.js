@@ -88,7 +88,7 @@ class operMat {
         render.element(this.staticEl, 'li', a + " : " + b + " = " + quociente);
     }
 }
-operMat.adicao(1, 3);
+operMat.adicao(2, 5);
 operMat.subtracao(5, 9);
 operMat.multiplicacao(2, 8);
 operMat.divisao(10,2);
@@ -156,3 +156,60 @@ class testVar{
 testVar.inicia();
 
 //Operações com vetores
+const arr = [1, 3, 4, 5, 8, 9];
+
+
+class opArray {
+    static dobraValores(arr) {
+        const arrEl = document.getElementById("map");
+        const newArr = arr.map(function(item, index){
+            render.element(arrEl, 'li', "Index [" + index + "]; Valor original: " + item + "; Novo valor: " + item * 2);
+            return item * 2;
+        });
+        render.element(arrEl, 'p', 'Retorno Final do Map dobraValores: [ ' + newArr + ' ]');
+        return newArr;
+    }
+    static somaTodos(arr) {
+        const arrEl = document.getElementById("reduce");
+        const sum = arr.reduce(function(total, itemAtual, index){
+            render.element(arrEl, 'li', "Acumulado: " + total + "; Valor Atual["+index+"]: " + itemAtual + "; Valor do Retorno: " + (total+ itemAtual));
+            return total + itemAtual;
+        })
+        render.element(arrEl, 'p', "Retorno final do Reduce somaTodos:" + sum);
+        return sum;
+    }
+    static multiplicaTodos(arr) {
+        const arrEl = document.getElementById("reduce");
+        const prod = arr.reduce(function(total, itemAtual, index){
+            render.element(arrEl, 'li', "Acumulado: " + total + "; Valor Atual["+index+"]: " + itemAtual + "; Valor do Retorno: " + (total * itemAtual));
+            return total * itemAtual;
+        })
+        render.element(arrEl, 'p', "Retorno final do Reduce multiplicaTodos:" + prod);
+        return prod;
+    }
+    static filtraPares(arr){
+        const arrEl = document.getElementById("filter");
+        const filter = arr.filter(function (item) {
+            render.element(arrEl, 'li', "O valor "+ item + " é par? " + ((item % 2) ? "Não" : "Sim"));
+            return item % 2 === 0;
+        });
+        render.element(arrEl, 'p', "Retorno final do Filter filtraPares:[ " + filter + " ]");
+        return filter;
+    }
+    static temItem(arr, valor){
+        const arrEl = document.getElementById("filter");
+        const filter = arr.filter(function (item) {
+            render.element(arrEl, 'li', "O valor "+ item + " é igua a "+ valor + "? " + ((item === valor) ? "Sim" : "Não"));
+            return item === valor;
+        });
+        render.element(arrEl, 'p', "Retorno final do Filter temItem:[ " + filter + " ]");
+        return filter;
+    }
+
+}
+
+opArray.dobraValores(arr);
+opArray.somaTodos(arr);
+opArray.multiplicaTodos(arr);
+opArray.filtraPares(arr);
+opArray.temItem(arr, 4);

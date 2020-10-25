@@ -1,2 +1,2 @@
 # starter-javascript
-Pequenos exercícios de  introdução ao javascript
+Pequenos exercícios de introdução ao javascript

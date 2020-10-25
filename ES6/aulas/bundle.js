@@ -171,7 +171,7 @@ var operMat = /*#__PURE__*/function () {
   return operMat;
 }();
 
-operMat.adicao(1, 3);
+operMat.adicao(2, 5);
 operMat.subtracao(5, 9);
 operMat.multiplicacao(2, 8);
 operMat.divisao(10, 2);
@@ -278,3 +278,76 @@ var testVar = /*#__PURE__*/function () {
 }();
 
 testVar.inicia(); //Operações com vetores
+
+var arr = [1, 3, 4, 5, 8, 9];
+
+var opArray = /*#__PURE__*/function () {
+  function opArray() {
+    _classCallCheck(this, opArray);
+  }
+
+  _createClass(opArray, null, [{
+    key: "dobraValores",
+    value: function dobraValores(arr) {
+      var arrEl = document.getElementById("map");
+      var newArr = arr.map(function (item, index) {
+        render.element(arrEl, 'li', "Index [" + index + "]; Valor original: " + item + "; Novo valor: " + item * 2);
+        return item * 2;
+      });
+      render.element(arrEl, 'p', 'Retorno Final do Map dobraValores: [ ' + newArr + ' ]');
+      return newArr;
+    }
+  }, {
+    key: "somaTodos",
+    value: function somaTodos(arr) {
+      var arrEl = document.getElementById("reduce");
+      var sum = arr.reduce(function (total, itemAtual, index) {
+        render.element(arrEl, 'li', "Acumulado: " + total + "; Valor Atual[" + index + "]: " + itemAtual + "; Valor do Retorno: " + (total + itemAtual));
+        return total + itemAtual;
+      });
+      render.element(arrEl, 'p', "Retorno final do Reduce somaTodos:" + sum);
+      return sum;
+    }
+  }, {
+    key: "multiplicaTodos",
+    value: function multiplicaTodos(arr) {
+      var arrEl = document.getElementById("reduce");
+      var prod = arr.reduce(function (total, itemAtual, index) {
+        render.element(arrEl, 'li', "Acumulado: " + total + "; Valor Atual[" + index + "]: " + itemAtual + "; Valor do Retorno: " + total * itemAtual);
+        return total * itemAtual;
+      });
+      render.element(arrEl, 'p', "Retorno final do Reduce multiplicaTodos:" + prod);
+      return prod;
+    }
+  }, {
+    key: "filtraPares",
+    value: function filtraPares(arr) {
+      var arrEl = document.getElementById("filter");
+      var filter = arr.filter(function (item) {
+        render.element(arrEl, 'li', "O valor " + item + " é par? " + (item % 2 ? "Não" : "Sim"));
+        return item % 2 === 0;
+      });
+      render.element(arrEl, 'p', "Retorno final do Filter filtraPares:[ " + filter + " ]");
+      return filter;
+    }
+  }, {
+    key: "temItem",
+    value: function temItem(arr, valor) {
+      var arrEl = document.getElementById("filter");
+      var filter = arr.filter(function (item) {
+        render.element(arrEl, 'li', "O valor " + item + " é igua a " + valor + "? " + (item === valor ? "Sim" : "Não"));
+        return item === valor;
+      });
+      render.element(arrEl, 'p', "Retorno final do Filter temItem:[ " + filter + " ]");
+      return filter;
+    }
+  }]);
+
+  return opArray;
+}();
+
+opArray.dobraValores(arr);
+opArray.somaTodos(arr);
+opArray.multiplicaTodos(arr);
+opArray.filtraPares(arr);
+opArray.temItem(arr, 4);
